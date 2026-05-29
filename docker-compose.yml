@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+
+  web:
+    build: .
+    container_name: ganaderia_web
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    volumes:
+      - .:/var/www/html
+
+  mysql:
+    image: mysql:8.0
+    container_name: ganaderia_mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: Ganaderia
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - "./ganaderia (1).sql:/docker-entrypoint-initdb.d/ganaderia.sql"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ganaderia_phpmyadmin
+
+    depends_on:
+      - mysql
+
+    ports:
+      - "8081:80"
+
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  mysql_data:
