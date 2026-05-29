@@ -1,73 +1,239 @@
+
 <?php
-// Configuración de la base de datos
+
+// CONEXION
 require_once "conexion.php";
 
-
-// Consultar datos
+// CONSULTA
 $consulta = "SELECT * FROM Empleados";
+
 $guardar = $conexion->query($consulta);
 
 if (!$guardar) {
-    die("Error en la consulta: " . $conexion->error);
+
+    die(
+        "Error en la consulta: " .
+        $conexion->error
+    );
 }
+
 ?>
 
-
 <!DOCTYPE html>
-<html>
+
+<html lang="es">
+
 <head>
-    <title>Administrativos</title>
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="icon" type="image/jpeg" href="toro1.jpg">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Panel Administrativo
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css">
+
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="image/toro1.jpg">
+
 </head>
+
 <body>
-    <div class="titulin">
-        <h1>GANADERIA EL ROSARIO</h1>
-    </div>
-    <div class="button-container">
-        <!-- Fila 1 -->
-        <div class="image-button">
-            <a href="DatosAnimales.php">
-                <img src="toro1.jpg" alt="Sección Trabajadores" title="Sección Trabajadores">
+
+    <!-- HEADER -->
+    <header>
+
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:15px;
+        ">
+
+            <div>
+
+                <h1>
+                    GANADERÍA EL ROSARIO
+                </h1>
+
+                <p>
+                    Panel administrativo del sistema ganadero.
+                </p>
+
+            </div>
+
+            <a href="INICIO.html">
+
+                <button
+                    type="button"
+                    class="btn-secondary">
+
+                    Regresar
+
+                </button>
+
             </a>
-            <p>Datos de los animales</p>
+
         </div>
-        <div class="image-button">
-            <a href="Empleados.php">
-                <img src="Trabajadores.jpg" alt="Iniciar Sesión" title="Iniciar Sesión">
+
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <!-- TITULO -->
+        <div style="
+            margin-bottom:35px;
+        ">
+
+            <h2>
+                Administración General
+            </h2>
+
+            <p>
+                Seleccione un módulo para gestionar la información.
+            </p>
+
+        </div>
+
+        <!-- TARJETAS -->
+        <div class="dashboard-grid">
+
+            <!-- ANIMALES -->
+            <a
+                href="DatosAnimales.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/toro1.jpg"
+                    alt="Animales">
+
+                <h3>
+                    Animales
+                </h3>
+
+                <p>
+                    Consultar información del ganado.
+                </p>
+
             </a>
-            <p>Datos trabajadores</p>
-        </div>
-        <div class="image-button">
-            <a href="InventarioAlmacen.php">
-                <img src="almacen.jpg" alt="Registrar Nuevos Trabajadores" title="Registrar Nuevos Trabajadores">
+
+            <!-- EMPLEADOS -->
+            <a
+                href="Empleados.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/Trabajadores.jpg"
+                    alt="Trabajadores">
+
+                <h3>
+                    Trabajadores
+                </h3>
+
+                <p>
+                    Gestionar empleados y personal.
+                </p>
+
             </a>
-            <p>Inventario del almacen</p>
-        </div>
-        <!-- Fila 2 -->
-        <div class="image-button">
-            <a href="Ganaderos.php">
-                <img src="ganaderos.jpg" alt="Reporte de Inventarios" title="Reporte de Inventarios">
+
+            <!-- INVENTARIO -->
+            <a
+                href="InventarioAlmacen.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/almacen.jpg"
+                    alt="Inventario">
+
+                <h3>
+                    Inventario
+                </h3>
+
+                <p>
+                    Control de suministros y almacén.
+                </p>
+
             </a>
-            <p>Ganaderias Socias</p>
-        </div>
-        <div class="image-button">
-            <a href="ReporteVentas.php">
-                <img src="ventaanimal.jpg" alt="Gestión de Animales" title="Gestión de Animales">
+
+            <!-- GANADEROS -->
+            <a
+                href="Ganaderos.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/ganaderos.jpg"
+                    alt="Ganaderos">
+
+                <h3>
+                    Ganaderías Socias
+                </h3>
+
+                <p>
+                    Administración de socios ganaderos.
+                </p>
+
             </a>
-            <p>Reportes de ventas</p>
-        </div>
-        <div class="image-button">
-            <a href="ReporteCompras.php">
-                <img src="compraanimal.jpg" alt="Ventas y Facturación" title="Ventas y Facturación">
+
+            <!-- VENTAS -->
+            <a
+                href="ReporteVentas.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/ventaanimal.jpg"
+                    alt="Ventas">
+
+                <h3>
+                    Reporte de Ventas
+                </h3>
+
+                <p>
+                    Visualizar ventas registradas.
+                </p>
+
             </a>
-            <p>Reportes de compras</p>
+
+            <!-- COMPRAS -->
+            <a
+                href="ReporteCompras.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/compraanimal.jpg"
+                    alt="Compras">
+
+                <h3>
+                    Reporte de Compras
+                </h3>
+
+                <p>
+                    Historial de compras de ganado.
+                </p>
+
+            </a>
+
         </div>
+
     </div>
 
-    <!-- Botón para regresar -->
-    <a href="INICIO.html" class="back-button">
-        <img src="flechaatras.jpg" alt="Regresar" title="Regresar" />
-    </a>
 </body>
+
 </html>
+
+<?php
+
+// CERRAR CONEXION
+$conexion->close();
+
+?>
+

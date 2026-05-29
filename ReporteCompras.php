@@ -1,89 +1,221 @@
+
 <?php
-// Configuración de la base de datos
+
+// CONEXION
 require_once "conexion.php";
 
+// CONSULTA
+$consulta = "SELECT * FROM ventaganado";
 
-// Consulta para obtener datos de ambas tablas
-$consulta = "
-    SELECT 
-        a.idAnimal, 
-        a.idCompraGanado, 
-        a.NumeroArete, 
-        a.Peso, 
-        a.PrecioCompra, 
-        a.PrecioTotal, 
-        a.Ganancia,
-        c.idCompraGanado AS CompraId,
-        c.N_Reemo, 
-        c.Motivo, 
-        c.Fecha
-    FROM animales a
-    JOIN compraganado c ON a.idCompraGanado = c.idCompraGanado
-";
 $guardar = $conexion->query($consulta);
 
+// VALIDAR CONSULTA
 if (!$guardar) {
-    die("Error en la consulta: " . $conexion->error);
+
+    die(
+        "Error en la consulta: " .
+        $conexion->error
+    );
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reportes Compras de Animales</title>
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="icon" type="image/jpg" href="toro1.jpg">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Reporte de Ventas
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css">
+
+    <link
+        rel="icon"
+        type="image/jpg"
+        href="image/toro1.jpg">
+
 </head>
+
 <body>
-    <div class="titulin">
-        <h1>GANADERIA EL ROSARIO</h1>
-        <a href="ADMINISTRADORES.php">
-            <img src="flechaatras.jpg" alt="Botón Atrás" class="boton-atras">
-        </a>
-    </div> 
-    <main>
-        <section class="container">
-            <h3>Reportes de Compras de Animales</h3>
-            <div class="tabla">
-                <table border="1" class="table">
-                    <thead>
-                        <tr>
-                            <th>Id Animal</th>
-                            <th>Id Compra Ganado</th>
-                            <th>Numero de Reemo</th>
-                            <th>Razon de Compra</th>
-                            <th>Fecha</th>
-                            <th>Numero de Arete</th>
-                            <th>Peso</th>
-                            <th>Precio de Compra</th>
-                            <th>Precio Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($row = $guardar->fetch_assoc()): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row['idAnimal']); ?></td>
-                                <td><?php echo htmlspecialchars($row['CompraId']); ?></td>
-                                <td><?php echo htmlspecialchars($row['N_Reemo']); ?></td>
-                                <td><?php echo htmlspecialchars($row['Motivo']); ?></td>
-                                <td><?php echo htmlspecialchars($row['Fecha']); ?></td>
-                                <td><?php echo htmlspecialchars($row['NumeroArete']); ?></td>
-                                <td><?php echo htmlspecialchars($row['Peso']); ?></td>
-                                <td><?php echo htmlspecialchars($row['PrecioCompra']); ?></td>
-                                <td><?php echo htmlspecialchars($row['PrecioTotal']); ?></td>
-                            </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
+
+    <!-- HEADER -->
+    <header>
+
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:15px;
+        ">
+
+            <h1>
+                GANADERÍA EL ROSARIO
+            </h1>
+
+            <a href="ADMINISTRADORES.php">
+
+                <button
+                    type="button"
+                    class="btn-secondary">
+
+                    Regresar
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <!-- CARD PRINCIPAL -->
+        <div class="card">
+
+            <!-- TITULO -->
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                margin-bottom:25px;
+                flex-wrap:wrap;
+                gap:10px;
+            ">
+
+                <div>
+
+                    <h2>
+                        Reporte de Ventas
+                    </h2>
+
+                    <p>
+                        Consulta general de ventas registradas.
+                    </p>
+
+                </div>
+
             </div>
-        </section>
-    </main>
+
+            <!-- TABLA -->
+            <div style="overflow-x:auto;">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ID Venta
+                            </th>
+
+                            <th>
+                                Reemo
+                            </th>
+
+                            <th>
+                                Destino
+                            </th>
+
+                            <th>
+                                Tipo de Venta
+                            </th>
+
+                            <th>
+                                Peso Venta
+                            </th>
+
+                            <th>
+                                Precio Venta
+                            </th>
+
+                            <th>
+                                Ganancia
+                            </th>
+
+                            <th>
+                                Fecha Venta
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <?php while ($row = $guardar->fetch_assoc()): ?>
+
+                            <tr>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['idVenta']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['N_Reemo']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['Destino']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['TipoVenta']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['PesoVenta']); ?>
+                                </td>
+
+                                <td>
+                                    $
+                                    <?php echo htmlspecialchars($row['PrecioVenta']); ?>
+                                </td>
+
+                                <td>
+                                    $
+                                    <?php echo htmlspecialchars($row['Ganancia']); ?>
+                                </td>
+
+                                <td>
+                                    <?php echo htmlspecialchars($row['FechaVenta']); ?>
+                                </td>
+
+                            </tr>
+
+                        <?php endwhile; ?>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>
 
 <?php
-// Cerrar la conexión
+
+// CERRAR CONEXION
 $conexion->close();
+
 ?>
+

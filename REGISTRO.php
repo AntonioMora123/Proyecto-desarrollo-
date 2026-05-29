@@ -1,121 +1,393 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro nuevo empleado</title> 
-    <link rel="stylesheet" href="styles/global.css"> 
-    <link rel="icon" type="image/jpg" href="toro1.jpg">
-</head>
-<body>
-    <div class="titulin">
-        <h1>GANADERIA EL ROSARIO</h1>
-    </div>
-    <main>
-        <section class="izquierda">
-        </section>
-        <section class="centro">
-            <div class="log">
-                <div class="login">
-                    <form method="POST" action="REGISTRO.php">
-                        <div class="titulo">
-                            <h2>Nuevo empleado</h2>
-                            <a href="INICIO.html">
-                                <img src="flechaatras.jpg" alt="Botón Atrás" class="boton-atras">
-                            </a>
-                        </div>
-                        <label for="nombre">Nombre(s):</label>
-                        <input type="text" name="Nombre" id="nombre" required>
-                        
-                        <label for="apellidoP">Apellido Paterno:</label>
-                        <input type="text" name="ApellidoP" id="apellidoP" required>
-                        
-                        <label for="apellidoM">Apellido Materno:</label>
-                        <input type="text" name="ApellidoM" id="apellidoM">
 
-                        <label for="sexo">Género:</label>
-                        <select name="Sexo" id="sexo" required>
-                            <option value="" disabled selected>Selecciona una opción</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                        </select>
-                        
-                        <label for="telefono">Teléfono:</label>
-                        <input type="text" name="Telefono" id="telefono" required>
-                        
-                        <label for="puesto">Puesto:</label>
-                        <select name="Puesto" id="puesto" required>
-                            <option value="" disabled selected>Selecciona una opción</option>
-                            <option value="Administrativo">Administrativo</option>
-                            <option value="Obrero">Obrero</option>
-                            <option value="Dueño">Dueño</option>
-                        </select>
-                        
-                        <label for="salario">Salario:</label>
-                        <input type="number" name="Salario" id="salario" required>
+<?php
 
-                        <label for="apellidoM">Nueva Contrasena:</label>
-                        <input type="text" name="Clave" id="clave">
-                        
-                        <button type="submit">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <section class="derecha">
-        </section>
-    </main>
-</body>
-</html>
-
-
-<?php 
-// Configuración de la base de datos
+// CONEXION
 $server = "localhost";
 $user = "root";
 $pass = "";
 $db = "Ganaderia";
 
-// Crear conexión
-$conexion = new mysqli($server, $user, $pass, $db);
+// CREAR CONEXION
+$conexion = new mysqli(
+    $server,
+    $user,
+    $pass,
+    $db
+);
 
-// Verificar conexión
+// VALIDAR CONEXION
 if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
+
+    die(
+        "Conexión fallida: " .
+        $conexion->connect_error
+    );
 }
 
+?>
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Nuevo Empleado
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css">
+
+    <link
+        rel="icon"
+        type="image/jpg"
+        href="image/toro1.jpg">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:15px;
+        ">
+
+            <h1>
+                GANADERÍA EL ROSARIO
+            </h1>
+
+            <a href="INICIO.html">
+
+                <button
+                    type="button"
+                    class="btn-secondary">
+
+                    Regresar
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <div class="form-container">
+
+            <form
+                method="POST"
+                action="Registro.php">
+
+                <!-- TITULO -->
+                <div style="
+                    margin-bottom:30px;
+                ">
+
+                    <h2>
+                        Registrar Nuevo Empleado
+                    </h2>
+
+                    <p>
+                        Complete la información del empleado.
+                    </p>
+
+                </div>
+
+                <!-- GRID -->
+                <div style="
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+                    gap:20px;
+                ">
+
+                    <!-- NOMBRE -->
+                    <div>
+
+                        <label for="nombre">
+                            Nombre(s)
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Nombre"
+                            id="nombre"
+                            placeholder="Ingrese el nombre"
+                            required>
+
+                    </div>
+
+                    <!-- APELLIDO P -->
+                    <div>
+
+                        <label for="apellidoP">
+                            Apellido Paterno
+                        </label>
+
+                        <input
+                            type="text"
+                            name="ApellidoP"
+                            id="apellidoP"
+                            placeholder="Ingrese el apellido paterno"
+                            required>
+
+                    </div>
+
+                    <!-- APELLIDO M -->
+                    <div>
+
+                        <label for="apellidoM">
+                            Apellido Materno
+                        </label>
+
+                        <input
+                            type="text"
+                            name="ApellidoM"
+                            id="apellidoM"
+                            placeholder="Ingrese el apellido materno">
+
+                    </div>
+
+                    <!-- GENERO -->
+                    <div>
+
+                        <label for="sexo">
+                            Género
+                        </label>
+
+                        <select
+                            name="Sexo"
+                            id="sexo"
+                            required>
+
+                            <option value="" disabled selected>
+                                Seleccione una opción
+                            </option>
+
+                            <option value="Masculino">
+                                Masculino
+                            </option>
+
+                            <option value="Femenino">
+                                Femenino
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- TELEFONO -->
+                    <div>
+
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Telefono"
+                            id="telefono"
+                            placeholder="Ingrese el teléfono"
+                            required>
+
+                    </div>
+
+                    <!-- PUESTO -->
+                    <div>
+
+                        <label for="puesto">
+                            Puesto
+                        </label>
+
+                        <select
+                            name="Puesto"
+                            id="puesto"
+                            required>
+
+                            <option value="" disabled selected>
+                                Seleccione una opción
+                            </option>
+
+                            <option value="Administrativo">
+                                Administrativo
+                            </option>
+
+                            <option value="Obrero">
+                                Obrero
+                            </option>
+
+                            <option value="Dueño">
+                                Dueño
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- SALARIO -->
+                    <div>
+
+                        <label for="salario">
+                            Salario
+                        </label>
+
+                        <input
+                            type="number"
+                            name="Salario"
+                            id="salario"
+                            placeholder="Ingrese el salario"
+                            required>
+
+                    </div>
+
+                    <!-- CONTRASEÑA -->
+                    <div>
+
+                        <label for="clave">
+                            Nueva Contraseña
+                        </label>
+
+                        <input
+                            type="password"
+                            name="Clave"
+                            id="clave"
+                            placeholder="Ingrese la contraseña"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- BOTON -->
+                <div style="
+                    margin-top:30px;
+                ">
+
+                    <button type="submit">
+
+                        Registrar Empleado
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<?php
+
+// REGISTRO
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $nombre = $_POST['Nombre']; 
+
+    // DATOS
+    $nombre = $_POST['Nombre'];
+
     $apellidop = $_POST['ApellidoP'];
+
     $apellidom = $_POST['ApellidoM'];
+
     $sexo = $_POST['Sexo'];
+
     $telefono = $_POST['Telefono'];
+
     $puesto = $_POST['Puesto'];
+
     $salario = $_POST['Salario'];
+
     $clave = $_POST['Clave'];
 
-    
-    $stmt = $conexion->prepare("INSERT INTO Empleados (Nombre, ApellidoP, ApellidoM, Sexo, Telefono, Puesto, Salario, Clave) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    // PREPARAR CONSULTA
+    $stmt = $conexion->prepare("
+        INSERT INTO Empleados
+        (
+            Nombre,
+            ApellidoP,
+            ApellidoM,
+            Sexo,
+            Telefono,
+            Puesto,
+            Salario,
+            Clave
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    ");
+
     if ($stmt) {
-       
-        $stmt->bind_param("ssssssis", $nombre, $apellidop, $apellidom, $sexo, $telefono, $puesto, $salario, $clave);
-        
-        
+
+        $stmt->bind_param(
+            "ssssssis",
+            $nombre,
+            $apellidop,
+            $apellidom,
+            $sexo,
+            $telefono,
+            $puesto,
+            $salario,
+            $clave
+        );
+
+        // EJECUTAR
         if ($stmt->execute()) {
-            echo "Registro completo.";
+
+            echo "
+            <div class='container'>
+                <div class='alert-success'>
+                    Empleado registrado correctamente.
+                </div>
+            </div>
+            ";
+
         } else {
-            echo "Error al registrar: " . $stmt->error;
+
+            echo "
+            <div class='container'>
+                <div class='alert-danger'>
+                    Error al registrar:
+                    {$stmt->error}
+                </div>
+            </div>
+            ";
         }
-        
-        
+
         $stmt->close();
+
     } else {
-        echo "Error al preparar la consulta: " . $conexion->error;
+
+        echo "
+        <div class='container'>
+            <div class='alert-danger'>
+                Error al preparar la consulta:
+                {$conexion->error}
+            </div>
+        </div>
+        ";
     }
 }
 
-// Cerrar la conexión
+// CERRAR CONEXION
 $conexion->close();
+
 ?>
+

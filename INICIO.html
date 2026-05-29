@@ -1,33 +1,145 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <title>Inicio</title>
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="icon" type="image/jpeg" href="toro1.jpg">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Inicio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css">
+
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="image/toro1.jpg">
+
 </head>
+
 <body>
-    <div class="titulin">
-        <h1>GANADERIA EL ROSARIO</h1>
+
+    <!-- HEADER -->
+    <header>
+
+        <div style="
+            text-align:center;
+        ">
+
+            <h1>
+                GANADERÍA EL ROSARIO
+            </h1>
+
+            <p style="
+                margin-top:10px;
+                opacity:0.9;
+                font-size:1rem;
+            ">
+
+                Sistema Integral de Gestión Ganadera
+
+            </p>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <!-- TITULO -->
+        <div style="
+            text-align:center;
+            margin-bottom:40px;
+        ">
+
+            <h2>
+                Panel Principal
+            </h2>
+
+            <p>
+                Seleccione el módulo al que desea acceder.
+            </p>
+
+        </div>
+
+        <!-- GRID -->
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        ">
+
+            <!-- TRABAJADORES -->
+            <a
+                href="menuTrabajadores.html"
+                class="dashboard-card">
+
+                <img
+                    src="image/pala.jpg"
+                    alt="Trabajadores">
+
+                <h3>
+                    Trabajadores
+                </h3>
+
+                <p>
+                    Acceso a funciones operativas relacionadas con animales, alimentación y ventas.
+                </p>
+
+            </a>
+
+            <!-- ADMINISTRATIVOS -->
+            <a
+                href="LOGIN.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/notas.jpg"
+                    alt="Administrativos">
+
+                <h3>
+                    Administrativos
+                </h3>
+
+                <p>
+                    Acceso al sistema administrativo y módulos de gestión general.
+                </p>
+
+            </a>
+
+            <!-- REGISTRO -->
+            <a
+                href="Registro.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/agregarTrabajador.jpg"
+                    alt="Registrar Trabajador">
+
+                <h3>
+                    Registrar Trabajadores
+                </h3>
+
+                <p>
+                    Registro de nuevos empleados dentro del sistema ganadero.
+                </p>
+
+            </a>
+
+        </div>
+
     </div>
-    <div class="button-container">
-        <div class="image-button">
-            <a href="menuTrabajadores.html">
-                <img src="pala.jpg" alt="Sección Trabajadores" title="Sección Trabajadores">
-            </a>
-            <p>Trabajadores</p>
-        </div>
-        <div class="image-button">
-            <a href="LOGIN.php">
-                <img src="notas.jpg" alt="Iniciar Sesión" title="Iniciar Sesión">
-            </a>
-            <p>Administrativos</p>
-        </div>
-        <div class="image-button">
-            <a href="REGISTRO.php">
-                <img src="agregarTrabajador.jpg" alt="Registrar Nuevos Trabajadores" title="Registrar Nuevos Trabajadores">
-            </a>
-            <p>Registrar Nuevos Trabajadores</p>
-        </div>
-    </div>
+
 </body>
+
 </html>
+

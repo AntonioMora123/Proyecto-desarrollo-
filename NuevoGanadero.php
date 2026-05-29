@@ -1,102 +1,346 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registro Nuevo Socio</title>
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="icon" type="image" href="toro1.jpg">
-</head>
-<body>
-    <div class="titulin">
-        <h1>GANADERIA EL ROSARIO</h1>
-    </div>
-    <main>
-        <section class="izquierda">
-        </section>
-        <section class="centro">
-            <br><br>
-            <div class="log">
-                <div class="login">
-                    
-                    <form method="POST" action="">
-                        <br>
-                        <div class="titulo">
-                            <h2>Nuevo Socio</h2>
-                            <a href="Ganaderos.php">
-                                <img src="flechaatras.jpg" alt="Botón Atrás" class="boton-atras">
-                            </a>
-                        </div>
-                        <br>
-                        <label for="Idganado">Id compra de ganado:</label>
-                        <input type="text" name="IdCompraGanado" id="Idganado" required>
-                        <label for="nombre">Nombre(s):</label>
-                        <input type="text" name="Nombre" id="nombre" required>
-                        <label for="razonsocial">Nombre de Ganadería:</label>
-                        <input type="text" name="RazonSocial" id="razonsocial" required>
-                        <label for="domicilio">Domicilio:</label>
-                        <input type="text" name="Domicilio" id="domicilio" required>
-                        <label for="localidad">Localidad:</label>
-                        <input type="text" name="Localidad" id="localidad" required>
-                        <label for="municipio">Municipio:</label>
-                        <input type="text" name="Municipio" id="municipio" required>
-                        <label for="estado">Estado:</label>
-                        <input type="text" name="Estado" id="estado" required>
-                        <button type="submit">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <section class="derecha">
-        </section>
-    </main>
-</body>
-</html>
 
-<?php 
-// Configuración de la base de datos
+<?php
+
+// CONEXION
 $server = "localhost";
 $user = "root";
 $pass = "";
 $db = "Ganaderia";
 
-// Crear conexión
-$conexion = new mysqli($server, $user, $pass, $db);
+// CREAR CONEXION
+$conexion = new mysqli(
+    $server,
+    $user,
+    $pass,
+    $db
+);
 
-// Verificar conexión
+// VALIDAR CONEXION
 if ($conexion->connect_error) {
-    die("Conexión fallida: " . $conexion->connect_error);
+
+    die(
+        "Conexión fallida: " .
+        $conexion->connect_error
+    );
 }
 
+?>
 
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Nuevo Socio
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css">
+
+    <link
+        rel="icon"
+        type="image/jpg"
+        href="image/toro1.jpg">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:15px;
+        ">
+
+            <h1>
+                GANADERÍA EL ROSARIO
+            </h1>
+
+            <a href="Ganaderos.php">
+
+                <button
+                    type="button"
+                    class="btn-secondary">
+
+                    Regresar
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <div class="form-container">
+
+            <form
+                method="POST"
+                action="">
+
+                <!-- TITULO -->
+                <div style="
+                    margin-bottom:30px;
+                ">
+
+                    <h2>
+                        Registrar Nuevo Socio
+                    </h2>
+
+                    <p>
+                        Complete la información del ganadero o socio.
+                    </p>
+
+                </div>
+
+                <!-- GRID -->
+                <div style="
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+                    gap:20px;
+                ">
+
+                    <!-- ID GANADO -->
+                    <div>
+
+                        <label for="Idganado">
+                            ID Compra de Ganado
+                        </label>
+
+                        <input
+                            type="number"
+                            name="IdCompraGanado"
+                            id="Idganado"
+                            placeholder="Ingrese el ID"
+                            required>
+
+                    </div>
+
+                    <!-- NOMBRE -->
+                    <div>
+
+                        <label for="nombre">
+                            Nombre(s)
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Nombre"
+                            id="nombre"
+                            placeholder="Ingrese el nombre"
+                            required>
+
+                    </div>
+
+                    <!-- RAZON SOCIAL -->
+                    <div>
+
+                        <label for="razonsocial">
+                            Nombre de Ganadería
+                        </label>
+
+                        <input
+                            type="text"
+                            name="RazonSocial"
+                            id="razonsocial"
+                            placeholder="Ingrese la razón social"
+                            required>
+
+                    </div>
+
+                    <!-- DOMICILIO -->
+                    <div>
+
+                        <label for="domicilio">
+                            Domicilio
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Domicilio"
+                            id="domicilio"
+                            placeholder="Ingrese el domicilio"
+                            required>
+
+                    </div>
+
+                    <!-- LOCALIDAD -->
+                    <div>
+
+                        <label for="localidad">
+                            Localidad
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Localidad"
+                            id="localidad"
+                            placeholder="Ingrese la localidad"
+                            required>
+
+                    </div>
+
+                    <!-- MUNICIPIO -->
+                    <div>
+
+                        <label for="municipio">
+                            Municipio
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Municipio"
+                            id="municipio"
+                            placeholder="Ingrese el municipio"
+                            required>
+
+                    </div>
+
+                    <!-- ESTADO -->
+                    <div>
+
+                        <label for="estado">
+                            Estado
+                        </label>
+
+                        <input
+                            type="text"
+                            name="Estado"
+                            id="estado"
+                            placeholder="Ingrese el estado"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- BOTON -->
+                <div style="
+                    margin-top:30px;
+                ">
+
+                    <button type="submit">
+
+                        Registrar Socio
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<?php
+
+// REGISTRO
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $Idganado = $_POST['IdCompraGanado']; 
+    // DATOS
+    $Idganado = $_POST['IdCompraGanado'];
+
     $nombre = $_POST['Nombre'];
+
     $razonsocial = $_POST['RazonSocial'];
+
     $domicilio = $_POST['Domicilio'];
+
     $localidad = $_POST['Localidad'];
+
     $municipio = $_POST['Municipio'];
+
     $estado = $_POST['Estado'];
 
+    // PREPARAR CONSULTA
+    $stmt = $conexion->prepare("
+        INSERT INTO Ganaderos
+        (
+            IdCompraGanado,
+            Nombre,
+            RazonSocial,
+            Domicilio,
+            Localidad,
+            Municipio,
+            Estado
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ");
 
-    $stmt = $conexion->prepare("INSERT INTO Ganaderos (IdCompraGanado, Nombre, RazonSocial, Domicilio, Localidad, Municipio, Estado) VALUES (?, ?, ?, ?, ?, ?, ?)");
     if ($stmt) {
 
-        $stmt->bind_param("sssssss", $Idganado, $nombre, $razonsocial, $domicilio, $localidad, $municipio, $estado);
-        
-       
+        $stmt->bind_param(
+            "sssssss",
+            $Idganado,
+            $nombre,
+            $razonsocial,
+            $domicilio,
+            $localidad,
+            $municipio,
+            $estado
+        );
+
+        // EJECUTAR
         if ($stmt->execute()) {
-            echo "<script>alert('Registro exitoso');</script>";
+
+            echo "
+            <div class='container'>
+                <div class='alert-success'>
+                    Socio registrado correctamente.
+                </div>
+            </div>
+            ";
+
         } else {
-            echo "<script>alert('Error al registrar: " . $stmt->error . "');</script>";
+
+            echo "
+            <div class='container'>
+                <div class='alert-danger'>
+                    Error al registrar:
+                    {$stmt->error}
+                </div>
+            </div>
+            ";
         }
-        
-      
+
         $stmt->close();
+
     } else {
-        echo "<script>alert('Error al preparar la consulta: " . $conexion->error . "');</script>";
+
+        echo "
+        <div class='container'>
+            <div class='alert-danger'>
+                Error al preparar la consulta:
+                {$conexion->error}
+            </div>
+        </div>
+        ";
     }
 }
 
-// Cerrar la conexión
+// CERRAR CONEXION
 $conexion->close();
+
 ?>
+

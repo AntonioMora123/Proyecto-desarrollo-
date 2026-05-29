@@ -1,42 +1,170 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="es">
+
 <head>
-    <title>MenuTrabajadores</title>
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="icon" type="image/jpeg" href="toro1.jpg">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Panel de Trabajadores
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="styles/global.css">
+
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="image/toro1.jpg">
+
 </head>
+
 <body>
-    <div class="titulin">
-        <h1>GANADERIA EL ROSARIO</h1>
+
+    <!-- HEADER -->
+    <header>
+
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:15px;
+        ">
+
+            <h1>
+                GANADERÍA EL ROSARIO
+            </h1>
+
+            <a href="INICIO.html">
+
+                <button
+                    type="button"
+                    class="btn-secondary">
+
+                    Cerrar Sesión
+
+                </button>
+
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+
+        <!-- TITULO -->
+        <div style="
+            margin-bottom:35px;
+            text-align:center;
+        ">
+
+            <h2>
+                Panel de Trabajadores
+            </h2>
+
+            <p>
+                Gestión de animales, alimentación, medicamentos y ventas.
+            </p>
+
+        </div>
+
+        <!-- GRID MENU -->
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        ">
+
+            <!-- AGREGAR ANIMAL -->
+            <a
+                href="ComparAnimal.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/agregarAnimal.jpg"
+                    alt="Agregar Animal">
+
+                <h3>
+                    Agregar Animal
+                </h3>
+
+                <p>
+                    Registrar nuevos animales dentro del sistema.
+                </p>
+
+            </a>
+
+            <!-- ALIMENTO -->
+            <a
+                href="DarComida.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/alimentoAnimal.jpg"
+                    alt="Alimento">
+
+                <h3>
+                    Alimentación
+                </h3>
+
+                <p>
+                    Registrar y administrar la alimentación del ganado.
+                </p>
+
+            </a>
+
+            <!-- MEDICAMENTO -->
+            <a
+                href="DarMedicina.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/medicinaAnimal.jpg"
+                    alt="Medicamento">
+
+                <h3>
+                    Medicamentos
+                </h3>
+
+                <p>
+                    Control y seguimiento de medicamentos aplicados.
+                </p>
+
+            </a>
+
+            <!-- VENDER -->
+            <a
+                href="VenderAnimal.php"
+                class="dashboard-card">
+
+                <img
+                    src="image/venderAnimal.jpg"
+                    alt="Vender Animal">
+
+                <h3>
+                    Venta de Animales
+                </h3>
+
+                <p>
+                    Registrar ventas y movimientos de ganado.
+                </p>
+
+            </a>
+
+        </div>
+
     </div>
-    <div class="button-container">
-        <div class="image-button">
-            <a href="ComparAnimal.php">
-                <img src="agregarAnimal.jpg" alt="agregar Animal" title="agregar Animal">
-            </a>
-            <p>Agregar animal</p>
-        </div>
-        <div class="image-button">
-            <a href="DarComida.php">
-                <img src="alimentoAnimal.jpg" alt="alimento" title="alimento">
-            </a>
-            <p>Alimento</p>
-        </div>
-        <div class="image-button">
-            <a href="DarMedicina.php">
-                <img src="medicinaAnimal.jpg" alt="medicamento" title="medicamento">
-            </a>
-            <p>Medicamento</p>
-        </div>
-        <div class="image-button">
-            <a href="VenderAnimal.php">
-                <img src="venderAnimal.jpg" alt="vender animal" title="vender animal">
-            </a>
-            <p>Vender animal</p>
-        </div>
-    </div>
-    <a href="INICIO.html" class="corner-icon">
-        <img src="flechaatras.jpg" alt="Ícono de redirección" title="Ir a otra página">
-    </a>
+
 </body>
+
 </html>
+
