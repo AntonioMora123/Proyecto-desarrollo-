@@ -69,7 +69,7 @@ if ($conexion->connect_error) {
                 GANADERÍA EL ROSARIO
             </h1>
 
-            <a href="INICIO.html">
+            <a href="Inicio.html">
 
                 <button
                     type="button"

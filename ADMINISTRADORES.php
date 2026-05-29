@@ -71,7 +71,7 @@ if (!$guardar) {
 
             </div>
 
-            <a href="INICIO.html">
+            <a href="Inicio.html">
 
                 <button
                     type="button"

@@ -68,7 +68,7 @@ session_start();
                         Iniciar Sesión
                     </h2>
 
-                    <a href="INICIO.html">
+                    <a href="Inicio.html">
 
                         <button
                             type="button"
