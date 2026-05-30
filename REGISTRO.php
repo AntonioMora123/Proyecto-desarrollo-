@@ -1,29 +1,7 @@
 
 <?php
 
-// CONEXION
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "Ganaderia";
-
-// CREAR CONEXION
-$conexion = new mysqli(
-    $server,
-    $user,
-    $pass,
-    $db
-);
-
-// VALIDAR CONEXION
-if ($conexion->connect_error) {
-
-    die(
-        "Conexión fallida: " .
-        $conexion->connect_error
-    );
-}
-
+require_once "conexion.php";
 ?>
 
 <!DOCTYPE html>

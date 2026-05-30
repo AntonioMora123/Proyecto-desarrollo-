@@ -375,7 +375,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } catch (Exception $e) {
 
         // REVERTIR
-        mysqli_roll_back($conexion);
+        mysqli_rollback($conexion);
 
         echo "
         <div class='container'>

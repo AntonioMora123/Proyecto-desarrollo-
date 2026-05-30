@@ -63,7 +63,7 @@ if (!$guardar) {
                 GANADERÍA EL ROSARIO
             </h1>
 
-            <a href="ADMINISTRADORES.php">
+            <a href="Administradores.php">
 
                 <button
                     type="button"
