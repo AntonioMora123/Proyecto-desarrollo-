@@ -298,7 +298,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // PREPARAR CONSULTA
     $stmt = $conexion->prepare("
-        INSERT INTO Empleados
+        INSERT INTO empleados
         (
             Nombre,
             ApellidoP,

@@ -5,7 +5,7 @@
 require_once "conexion.php";
 
 // CONSULTA
-$consulta = "SELECT * FROM Empleados";
+$consulta = "SELECT * FROM empleados";
 
 $guardar = $conexion->query($consulta);
 
@@ -106,7 +106,7 @@ if (!$guardar) {
         </div>
 
         <!-- TARJETAS -->
-        <div class="dashboard-grid">
+        <div class="menu-grid">
 
             <!-- ANIMALES -->
             <a

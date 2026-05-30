@@ -5,7 +5,7 @@
 require_once "conexion.php";
 
 // CONSULTA
-$consulta = "SELECT * FROM Ganaderos";
+$consulta = "SELECT * FROM ganaderos";
 
 $guardar = $conexion->query($consulta);
 

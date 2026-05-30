@@ -71,7 +71,7 @@ header h1,
 }
 
 /* =========================
-   CARDS
+   CARDS (OPTIMIZADO)
 ========================= */
 .card,
 .image-button,
@@ -80,9 +80,16 @@ header h1,
     background: white;
     border-radius: 18px;
     box-shadow: var(--shadow-soft);
-    padding: 25px;
+    padding: 30px 24px;
     transition: var(--transition);
     border: 1px solid rgba(0,0,0,0.03);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none; /* Quitamos cualquier subrayado feo de raíz */
+    color: var(--texto-principal); /* Aseguramos que el texto mantenga su color oscuro */
 }
 
 .card:hover,
@@ -92,7 +99,6 @@ header h1,
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
-
 /* =========================
    BOTONES
 ========================= */
@@ -248,13 +254,22 @@ tbody tr:hover {
 }
 
 /* =========================
-   IMÁGENES MENU
+   IMÁGENES MENU (PROPORCIONAL)
 ========================= */
-.image-button img {
-    width: 100%;
-    max-width: 120px;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Cambiamos a max-height para que la imagen mantenga su proporción original sin deformarse */
+.image-button img, 
+.dashboard-card img {
+    width: auto;
+    height: 90px; 
+    max-width: 100%;
     object-fit: contain;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* =========================

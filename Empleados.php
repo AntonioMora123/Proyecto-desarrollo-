@@ -5,7 +5,7 @@
 require_once "conexion.php";
 
 // CONSULTA
-$consulta = "SELECT * FROM Empleados";
+$consulta = "SELECT * FROM empleados";
 
 $guardar = $conexion->query($consulta);
 

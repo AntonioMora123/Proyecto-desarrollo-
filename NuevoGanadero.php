@@ -1,28 +1,7 @@
 
 <?php
 
-// CONEXION
-$server = "localhost";
-$user = "root";
-$pass = "";
-$db = "Ganaderia";
-
-// CREAR CONEXION
-$conexion = new mysqli(
-    $server,
-    $user,
-    $pass,
-    $db
-);
-
-// VALIDAR CONEXION
-if ($conexion->connect_error) {
-
-    die(
-        "Conexión fallida: " .
-        $conexion->connect_error
-    );
-}
+require_once "conexion.php";
 
 ?>
 
@@ -275,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // PREPARAR CONSULTA
     $stmt = $conexion->prepare("
-        INSERT INTO Ganaderos
+        INSERT INTO ganaderos
         (
             IdCompraGanado,
             Nombre,
